@@ -110,6 +110,12 @@ void cache_as_ram_main(unsigned long bist, unsigned long cpu_init_detectedx)
 		memptr = (u32 *)(ACPI_MMIO_BASE + MISC_BASE + FCH_MISC_REG40 );
 		data = *memptr;
 		printk(BIOS_INFO, "FCH_MISC_REG40 is 0x%08x \n", data);
+		data &= (u32)~BIT14; // Clear OscClkSwitchEn to not generate internal PLL
+		data |= (u32) BIT7; // Set OSCOUT2_OutOff to enable OSCOUT2 pin output
+		*memptr = data;
+		memptr = (u32 *)(ACPI_MMIO_BASE + MISC_BASE + FCH_MISC_REG40 );
+		data = *memptr;
+		printk(BIOS_INFO, "USB fix FCH_MISC_REG40 is 0x%08x \n", data);
 
 		//
 		// Configure clock request
