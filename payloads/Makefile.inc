@@ -33,6 +33,7 @@ payloads/external/iPXE \
 payloads/external/tint \
 payloads/external/tianocore \
 payloads/external/GRUB2 \
+payloads/external/sortbootorder
 
 payloads/coreinfo/build/coreinfo.elf coreinfo:
 	$(MAKE) -C payloads/coreinfo defaultbuild
