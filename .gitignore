@@ -67,6 +67,8 @@ coreboot-builds*/
 # Development friendly files
 tags
 .clang_complete
+.tags
+.tags_sorted_by_file
 
 # Cross-compile toolkits
 xgcc/
